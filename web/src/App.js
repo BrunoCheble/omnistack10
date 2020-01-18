@@ -25,6 +25,11 @@ const App = () => {
     setDevs([...devs, response.data]);
   }
 
+  async function handleDelDev(id) {
+    const response = await api.delete(`/devs/${id}`);
+    setDevs(devs.filter(dev => dev._id != response.data._id));
+  }
+
   return (
     <div id="app">
       <aside>
@@ -33,7 +38,7 @@ const App = () => {
       </aside>
       <main>
         <ul>
-          {devs.map(dev => <DevItem key={dev._id} dev={dev} />)}
+          {devs.map(dev => <DevItem key={dev._id} handleDelDev={handleDelDev} dev={dev} />)}
         </ul>
       </main>
     </div>

@@ -54,7 +54,18 @@ li.dev-item a:hover {
 
 li.dev-item button.dev-delete {
     border: 0;
-    background-color: #000;
+    width: 25px;
+    height: 25px;
+    line-height: 1em;
+    background-color: transparent;
+    color: #7d40e7;
     align-self: flex-start;
     cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.5s;
+}
+
+li.dev-item button.dev-delete:hover {
+    background-color: #7d40e7;
+    color: #fff;
 }

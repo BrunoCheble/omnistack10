@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-const DevItem = ({ dev }) => (
+const DevItem = ({ dev, handleDelDev }) => (
     <li className="dev-item">
         <header>
             <img src={dev.avatar_url} alt={dev.name} />
@@ -9,7 +9,7 @@ const DevItem = ({ dev }) => (
                 <strong>{dev.name}</strong>
                 <span>{dev.techs.join(', ')}</span>
             </div>
-            <button className="dev-delete">x</button>
+            <button className="dev-delete" onClick={() => handleDelDev(dev._id)}>x</button>
         </header>
         <p>{dev.bio}</p>
         <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
