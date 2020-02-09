@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 export const SearchForm = styled.View`
 position: absolute;
@@ -17,9 +17,7 @@ color: #333;
 border-radius: 25px;
 padding: 0 20px;
 font-size: 16px;
-shadow-color: #000;
-shadow-opacity: 0.2;
-shadow-offset: { width: 4, height: 4 };
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 elevation: 2;
 `;
 

@@ -4,6 +4,7 @@ import { Keyboard } from 'react-native';
 
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import api from '../../services/api';
+import { connect, disconnect, subscribeToNewDevs } from '../../services/socket';
 
 import DevMarker from '../../components/DevMarker';
 import DevSearch from '../../components/DevSearch';
@@ -12,6 +13,12 @@ const Main = ({ navigation }) => {
 
     const [currentRegion, setCurrentRegion] = useState(null);
     const [devs, setDevs] = useState([]);
+
+    function setupWebsocket(techs) {
+        disconnect();
+        const { latitude, longitude } = currentRegion;
+        connect(latitude, longitude, techs);
+    }
 
     async function loadDevs(techs) {
         Keyboard.dismiss();
@@ -23,19 +30,25 @@ const Main = ({ navigation }) => {
                 techs
             }
         });
+
         setDevs(response.data);
+        setupWebsocket(techs);
     }
 
     function handleRegionChanged(region) {
         setCurrentRegion(region);
     }
-
+/*
     useEffect(() => {
         if (currentRegion != null) {
             loadDevs();
         }
     }, [currentRegion]);
-
+*/
+    useEffect(() => {
+        subscribeToNewDevs(dev => setDevs([...devs, dev]));
+    }, [devs]);
+    
     useEffect(() => {
         async function loadInitialPosition() {
             const { granted } = await requestPermissionsAsync();
@@ -55,10 +68,10 @@ const Main = ({ navigation }) => {
         }
         loadInitialPosition();
     }, []);
-
+/*
     if (!currentRegion) {
         return null;
-    }
+    }*/
     return (
         <>
             <MapView
