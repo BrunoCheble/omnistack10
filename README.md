@@ -1,14 +1,17 @@
-<h2>Semana Omnistack10<br><br>Desenvolvimento (full stack) de um projeto guiado por uma semana pela equipa <a target="_new" href="http://rocketseat.com.br/">Rocketseat</a>.</h2>
+<h1>Semana omnistack #10 - DevRadar</h1>
+<p>Aplicação desenvolvida acompanhando as aulas da 10ª Edição, utilizando Node.JS no back, React no Web e React Native no Mobile.</p>
 
-<h4>O projeto permite localizar desenvolvedores que conhecem as tecnologias filtradas, dentro de um raio de 10km do utilizador da App.</h4>
+<h3>Funcionalidades</h3>
+<ul>
+  <li>Cadastro de Desenvolvedores (apenas) na versão Web: Os inputs são o username do GitHub, tecnologias do Dev e seu endereço (latitude e longitude). A bio, o nome e link do perfil são obtidos através da API do GitHub.</li>
+  <li>
+    Busca de Desenvolvedores em função de Tecnologias (apenas) no Mobile: O input é o nome de alguma tecnologia e o resultado é a apresentação no mapa dos Devs que trabalham com a tecnologia buscada. É possível selecionar um Dev no mapa e a partir do balão acessar seu perfil no GitHub através no navegador embutido.
+  </li>
+</ul>
 
-<h3>Tecnologias desenvolvidas: React, React-native (Expo) e Node.js (MongoDB, Socket.io, Express)</h3>
-
-<h3>Print da aplicação web:</h3>
-<img src="https://img.techpowerup.org/200406/print-web.png">
-
-<h3>Prints da aplicação mobile:</h3>
+<h3>Prints</h3>
 <div>
 <img width="400" style="display:inline" src="https://img.techpowerup.org/200406/screenshot-20200406-120118-host-exp-exponent.jpg">
 <img width="400" style="display:inline" src="https://img.techpowerup.org/200406/screenshot-20200406-120136-host-exp-exponent.jpg">
+<img src="https://img.techpowerup.org/200406/print-web.png">
 </div>
